@@ -1,0 +1,77 @@
+body {
+	margin: 0;
+	min-height: 100vh;
+	overflow: hidden;
+
+	display: grid;
+	place-content: center;
+
+	background-color: #f9f6ef;
+	background-image: radial-gradient(circle, #f9f6ef, #ebebe3),
+		radial-gradient(at 100% 20%, #5eb0e525, #0000 70%),
+		radial-gradient(at 20% 20%, #f3d06025, #0000 70%),
+		radial-gradient(at 20% 100%, #a5282c25, #0000 70%),
+		radial-gradient(at 100% 100%, #aee1cd25, #0000 70%);
+	background-blend-mode: darken;
+}
+canvas {
+	display: block;
+	border-bottom: 10px solid #836539;
+}
+#pic {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80vmin;
+	height: 80vmin;
+	margin: auto;
+	border: 4px solid #836539;
+	border-radius: 100vmax;
+	overflow: clip;
+	position: relative;
+	background-image: linear-gradient(
+		0deg,
+		#f6cd6c,
+		#f7af5f,
+		#f6894f,
+		#f74755,
+		#990066,
+		#660099,
+		#3300cc,
+		#0000ff,
+		#009aee,
+		#00bfff,
+		#00cdfe,
+		#7bd9f6
+	);
+	background-size: 100% 400vh;
+	background-position-y: -300vh;
+	animation: movebg 3s linear forwards;
+}
+@keyframes movebg {
+	to {
+		background-position-y: 0vh;
+	}
+	from {
+		background-position-y: -300vh;
+	}
+}
+button {
+    position: fixed; /* 固定位置 */
+    top: 20px; /* 距离页面顶部 20 像素 */
+    left: 20px; /* 距离页面左侧 20 像素 */
+    padding: 0.15em 0.48em;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000; /* 使按钮显示在其他内容之上 */
+}
+
+body:has(button:active) #pic {
+	/* //reset background animation
+	//https://codepen.io/ghaste/pen/LYKLdBE */
+	animation: none;
+}
